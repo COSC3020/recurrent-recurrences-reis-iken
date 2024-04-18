@@ -26,3 +26,27 @@ $$ T(n) =
         13 T\left(\frac{n}{13}\right) + 2n & n > 1
     \end{cases}
 $$
+
+**MY ANSWER:**
+
+1. We can substitude in T(n) for a few iterations:
+
+T(n) = (n/13) + 5
+
+= (n/13^2) + 10
+
+= (n/13^3) + 15
+
+Thus, we can make the generalization:
+
+= (n/13^i) + 5i
+
+For i = $\log_{13} n$:
+
+= T(1) + 5$\log_{13} n$
+
+Since T(1) = 1, we get:
+
+T(n) = 1 + 5$\log_{13} n$
+
+By this, we know that the big $\Theta$ time complexity is $\Theta(logn)$
