@@ -29,7 +29,7 @@ $$
 
 **MY ANSWER:**
 
-1. We can substitude in T(n) for a few iterations:
+1. We can substitute in T(n) for a few iterations:
 
 T(n) = (n/13) + 5
 
@@ -50,3 +50,29 @@ Since T(1) = 1, we get:
 T(n) = 1 + 5$\log_{13} n$
 
 By this, we know that the big $\Theta$ time complexity is $\Theta(logn)$
+
+2. We shall substitute in T(n) for a few iterations:
+
+T(n) = 13T(n/13) + 5
+
+= 13^2T(n/13^2) + 13*5 + 5
+
+Thus, we can make our generalization:
+
+T(n) = 13^iT(n/13^i) + 5(1 + 13 + 13^2 + 13^3 + ... + 13^(i-1))
+
+We have a geometric series in there! Let's simplify:
+
+T(n) = 13^iT(n/13^i) + 5((13^i - 1)/12)
+
+For i = $\log_{13} n$:
+
+T(n) = n * T(1) + 5((n - 1)/12)
+
+Since T(1) = 1, we get:
+
+T(n) = n + 5((n - 1)/12)
+
+= n + (5/12)n - 5/12
+
+By this, we can conclude that the big $\Theta$ time complexity is $\Theta(n)$
